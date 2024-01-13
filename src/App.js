@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import api from './api';
 
 function App() {
+const [dataList, setDataList] = useState([]);
+
+  useEffect(()=>{
+    api.get('/posts')
+    .then((res)=>{
+      setDataList(res.data);
+    }).catch((error)=>{
+      console.log(error);
+    }).then(()=>{
+      console.log('test');
+    });
+
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+    <h1 className="text-center">Axios with ReactJs</h1>
+    <ol>
+      {dataList && dataList.map((val,index)=>{
+        return (
+          <li key={index}>{val.title}</li>
+        );
+      })}
+    </ol>
+    </Container>
   );
 }
 
