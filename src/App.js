@@ -9,10 +9,6 @@ function App() {
     api.get('/posts')
       .then((res) => {
         setDataList(res.data);
-      }).catch((error) => {
-        console.log(error);
-      }).then(() => {
-        console.log('test');
       });
   }, []);
 
