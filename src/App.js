@@ -7,9 +7,7 @@ function App() {
 
   useEffect(() => {
     api.get('/posts')
-      .then((res) => {
-        setDataList(res.data);
-      });
+      .then(res => setDataList(res.data));
   }, []);
 
   return (
