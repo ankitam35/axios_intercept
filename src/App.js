@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import "./App.scss"
 import api from './api';
 
 function App() {
