@@ -2,7 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import "./App.scss"
 import api from './api';
-import Lazy from './ondemand/Lazy';
+import Lazy from './tabOnDemand/Tab';
 
 const LazyLoadedComponent = lazy(() => import('./components/LazyLoadedComponent'));
 
