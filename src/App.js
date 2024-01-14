@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import "./App.scss"
 import api from './api';
+import Lazy from './ondemand/Lazy';
 
 const LazyLoadedComponent = lazy(() => import('./components/LazyLoadedComponent'));
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <Container>
+      <Lazy />
       <hr />
       <Suspense fallback={<div>Loading lazy...</div>}>
         <LazyLoadedComponent />
