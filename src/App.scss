@@ -87,3 +87,10 @@ $transformOrigin: 0.1em 5.1em;
   height: 100%;
   display: none;
 }
+
+#grad1 {
+  height: 200px;
+  width: 200px;
+  background-color: red; 
+  background-image: conic-gradient(red, yellow, green, blue, black);
+}

@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import "./App.scss"
 import api from './api';
+
+const LazyLoadedComponent = lazy(() => import('./components/LazyLoadedComponent'));
 
 function App() {
   const [dataList, setDataList] = useState([]);
@@ -13,6 +15,11 @@ function App() {
 
   return (
     <Container>
+      <hr />
+      <Suspense fallback={<div>Loading lazy...</div>}>
+        <LazyLoadedComponent />
+      </Suspense>
+      <hr />
       <h1 className="text-center">Axios with ReactJs</h1>
       <ol>
         {dataList && dataList.map((val, index) => {
